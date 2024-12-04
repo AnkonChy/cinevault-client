@@ -40,7 +40,7 @@ const Slider = () => {
       <SwiperSlide>
         <img
           className="w-full lg:h-screen   object-fill"
-          src="https://i.ibb.co.com/yddKTc0/dune2-2.webp"
+          src="https://i.ibb.co.com/dkLwdTS/dune.jpg"
           alt=""
         />
       </SwiperSlide>
