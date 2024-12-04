@@ -44,6 +44,7 @@ const Register = () => {
       .then((res) => {
         manageProfile(name, photo_url);
         setUser({ displayName: name, photoURL: photo_url, email: email });
+        console.log(res);
         // setUser(res.user)
         navigate(res.user && "/");
       })

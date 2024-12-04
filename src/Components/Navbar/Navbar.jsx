@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 const Navbar = () => {
+  const { user, handleLogout } = useContext(AuthContext);
+  console.log(user);
   return (
     <div className="navbar bg-base-100 mt-4 mb-7 w-11/12 mx-auto">
       <div className="navbar-start">
@@ -20,16 +23,37 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-3">
-        <NavLink to="/login">
-          <button className="py-2 px-4 bg-red-900 text-white rounded">
-            Login
+        {user ? (
+          <img
+            title={user.displayName}
+            className="w-12 h-12 rounded-full mr-4 object-cover"
+            src={user.photoURL}
+          ></img>
+        ) : (
+          ""
+        )}
+        {user ? (
+          <button
+            className="py-2 px-4 bg-blue-900 text-white rounded"
+            onClick={handleLogout}
+          >
+            Logout
           </button>
-        </NavLink>
-        <NavLink to="/register">
-          <button className="py-2 px-4 bg-red-900 text-white rounded">
-            Register
-          </button>
-        </NavLink>
+        ) : (
+          <>
+            <NavLink to="/login">
+              <button className="py-2 px-4 bg-blue-900 text-white rounded">
+                Login
+              </button>
+            </NavLink>
+            <NavLink to="/register">
+              <button className="py-2 px-4 bg-red-900 text-white rounded">
+                Register
+              </button>
+            </NavLink>
+          </>
+        )}
+
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
