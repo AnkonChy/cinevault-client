@@ -3,6 +3,9 @@ import MainLayout from "../MainLayout/MainLayout";
 import Home from "../Pages/Home/Home";
 import Register from "../Components/Register/Register";
 import Login from "../Components/Login/Login";
+import AddMovie from "../Pages/Home/AddMovie/AddMovie";
+import PrivateRoute from "../Routes/PrivateRoute/PrivateRoute";
+import AllMovies from "../Components/AllMovies/AllMovies";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +25,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/addMovies",
+        element: (
+          <PrivateRoute>
+            <AddMovie></AddMovie>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/allMovies",
+        element: <AllMovies></AllMovies>,
+      },
+      {
+        path: "/favourite",
+        element: (
+          <PrivateRoute>
+            <AddMovie></AddMovie>
+          </PrivateRoute>
+        ),
       },
     ],
   },

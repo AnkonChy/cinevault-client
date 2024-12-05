@@ -6,6 +6,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 import auth from "../../../firebase/firebase.init";
 export const AuthContext = createContext();
@@ -35,7 +36,18 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  
+  const manageProfile = (name, photo_url) => {
+    // setLoading(true);
+    console.log(name, photo_url);
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo_url,
+    });
+  };
+
+  const resetPass = (email) => {
+    sendPasswordResetEmail(auth, email);
+  };
   const authInfo = {
     handleRegister,
     handleLogin,
@@ -43,6 +55,9 @@ const AuthProvider = ({ children }) => {
     handleLogout,
     user,
     setUser,
+    manageProfile,
+    resetPass,
+    loading,
   };
 
   useEffect(() => {
