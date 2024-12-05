@@ -1,11 +1,41 @@
 import React from "react";
 
 const AddMovie = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    const poster = form.poster.value;
+    const title = form.title.value;
+    const genre = form.genre.value;
+    const duration = form.duration.value;
+    const year = form.year.value;
+    const summary = form.summary.value;
+
+    const data = {
+      poster: poster,
+      title: title,
+      genre: genre,
+      duration: duration,
+      year: year,
+      summary: summary,
+    };
+
+    fetch("http://localhost:4000/addMovie", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
+  };
   return (
     <div>
       <div className="bg-[#F4F3F0] lg:p-24">
         <h2 className="text-3xl text-center font-bold">Add New Movie</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="md:flex gap-6 ">
             <div className="form-control md:w-1/2">
               <label className="label">
@@ -53,7 +83,7 @@ const AddMovie = () => {
                 <span className="label-text">Duration(min)</span>
               </label>
               <input
-                type="text"
+                type="number"
                 name="duration"
                 placeholder="Duration"
                 className="input input-bordered"
@@ -91,17 +121,17 @@ const AddMovie = () => {
             </div>
           </div>
           <div className="flex gap-6 ">
-            <div className="form-control md:w-1/2 mt-6 md:mt-0">
+            <div className="form-control w-full md:w-1/2 mt-6 md:mt-0">
               <label className="label font-bold">
                 <span className="label-text">Summary</span>
               </label>
-              <input
-                type="text"
+              <textarea
                 name="summary"
-                placeholder="summary"
-                className="input input-bordered"
-                required
-              />
+                id="summary"
+                rows="5"
+                className="rounded-md p-3"
+                placeholder="Write summary"
+              ></textarea>
             </div>
           </div>
 

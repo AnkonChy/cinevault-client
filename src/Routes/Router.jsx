@@ -3,9 +3,9 @@ import MainLayout from "../MainLayout/MainLayout";
 import Home from "../Pages/Home/Home";
 import Register from "../Components/Register/Register";
 import Login from "../Components/Login/Login";
-import AddMovie from "../Pages/Home/AddMovie/AddMovie";
+import AddMovie from "../Pages/AddMovie/AddMovie";
 import PrivateRoute from "../Routes/PrivateRoute/PrivateRoute";
-import AllMovies from "../Components/AllMovies/AllMovies";
+import AllMovies from "../Pages/AllMovies/AllMovies";
 const router = createBrowserRouter([
   {
     path: "/",
