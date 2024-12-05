@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 const AddMovie = () => {
   const [rating, setRating] = useState(0);
 
   const handleRating = (rate) => {
     setRating(rate);
   };
-
-  // const onPointerEnter = () => console.log("Enter");
-  // const onPointerLeave = () => console.log("Leave");
-  // const onPointerMove = (value: number, index: number) =>
-  //   console.log(value, index);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,7 +58,10 @@ const AddMovie = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
+      .then((result) => toast.success("Added new movie successfully")
+      
+    );
+
   };
   return (
     <div>
