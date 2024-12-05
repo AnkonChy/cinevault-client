@@ -32,7 +32,7 @@ const FeaturedMovie = ({ movie }) => {
         </div>
 
         <div className="card-actions justify-center mt-4">
-          <Link to={`/movieDetails/${_id}`}>
+          <Link to={`/movie/${_id}`}>
             <button className="text-lg py-2 px-6 rounded-full bg-gray-800 text-white border hover:bg-blue-900">
               See Details
             </button>
