@@ -1,6 +1,18 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { Rating } from "react-simple-star-rating";
+import { toast } from "react-toastify";
 const AddMovie = () => {
+  const [rating, setRating] = useState(0);
+
+  const handleRating = (rate) => {
+    setRating(rate);
+  };
+
+  // const onPointerEnter = () => console.log("Enter");
+  // const onPointerLeave = () => console.log("Leave");
+  // const onPointerMove = (value: number, index: number) =>
+  //   console.log(value, index);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,6 +24,26 @@ const AddMovie = () => {
     const year = form.year.value;
     const summary = form.summary.value;
 
+    if (!/^(https?:\/\/)([\w\-]+(\.[\w\-]+)+)(\/[^\s]*)?$/.test(poster)) {
+      toast.warn("Please give a image link");
+      return;
+    }
+    if (title.length < 2) {
+      toast.warn("Title must be 3 characters");
+      return;
+    }
+    if (duration < 60) {
+      toast.warn("Duration must exceed 60 minutes");
+      return;
+    }
+    if (rating === 0) {
+      toast.warn("Please give a rating");
+      return;
+    }
+    if (summary.length < 10) {
+      toast.warn("Summary must be 10 characters");
+      return;
+    }
     const data = {
       poster: poster,
       title: title,
@@ -19,6 +51,7 @@ const AddMovie = () => {
       duration: duration,
       year: year,
       summary: summary,
+      rating: rating,
     };
 
     fetch("http://localhost:4000/addMovie", {
@@ -67,7 +100,15 @@ const AddMovie = () => {
               <label className="label">
                 <span className="label-text font-bold">Genre</span>
               </label>
-              <select className="input input-bordered " name="genre" id="genre">
+              <select
+                className="input input-bordered "
+                name="genre"
+                id="genre"
+                required
+              >
+                <option value="" disabled selected>
+                  Select Genre
+                </option>
                 <option value="comedy">Comedy</option>
                 <option value="drama">Drama</option>
                 <option value="horror">Horror</option>
@@ -96,7 +137,15 @@ const AddMovie = () => {
               <label className="label">
                 <span className="label-text font-bold">Release Year</span>
               </label>
-              <select className="input input-bordered " name="year" id="year">
+              <select
+                className="input input-bordered "
+                name="year"
+                id="year"
+                required
+              >
+                <option value="" disabled selected>
+                  Select Year
+                </option>
                 <option value="2024">2024</option>
                 <option value="2023">2023</option>
                 <option value="2022">2022</option>
@@ -111,13 +160,22 @@ const AddMovie = () => {
               <label className="label font-bold">
                 <span className="label-text">Rating</span>
               </label>
-              <input
+              <Rating
+                className=""
+                onClick={handleRating}
+                required
+                // onPointerEnter={onPointerEnter}
+                // onPointerLeave={onPointerLeave}
+                // onPointerMove={onPointerMove}
+                /* Available Props */
+              />
+              {/* <input
                 type="text"
                 name="rating"
                 placeholder="rating"
                 className="input input-bordered"
                 required
-              />
+              /> */}
             </div>
           </div>
           <div className="flex gap-6 ">
@@ -126,6 +184,7 @@ const AddMovie = () => {
                 <span className="label-text">Summary</span>
               </label>
               <textarea
+                required
                 name="summary"
                 id="summary"
                 rows="5"
