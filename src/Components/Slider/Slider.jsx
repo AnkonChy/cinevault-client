@@ -51,6 +51,20 @@ const Slider = () => {
           alt=""
         />
       </SwiperSlide>
+      <SwiperSlide>
+        <img
+          className="w-full lg:h-[600px] lg:object-fill"
+          src="https://i.ibb.co.com/Bs8pm8Z/Fvn-RS1t-Xw-AMZTN.jpg"
+          alt=""
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          className="w-full lg:h-[600px] lg:object-center"
+          src="https://i.ibb.co.com/r0SFtqX/ant-man.jpg"
+          alt=""
+        />
+      </SwiperSlide>
     </Swiper>
   );
 };

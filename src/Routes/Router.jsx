@@ -14,6 +14,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: async () => {
+          const sortMoviesRes = await fetch("http://localhost:4000/sortMovies");
+          const sortMoviesData = await sortMoviesRes.json();
+          return { sortMoviesData };
+        },
       },
       {
         path: "/register",

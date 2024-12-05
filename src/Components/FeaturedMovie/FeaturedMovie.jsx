@@ -1,10 +1,13 @@
 import React from "react";
-import Rating from "react-rating";
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
+import Rating from "react-rating";
 import { Link } from "react-router-dom";
-const Movie = ({ movie }) => {
+
+
+const FeaturedMovie = ({ movie }) => {
   const { _id, poster, title, genre, duration, year, rating } = movie;
+  console.log(rating);
   return (
     <div className="card card-compact bg-base-100 shadow-xl rounded-none">
       <figure>
@@ -40,4 +43,4 @@ const Movie = ({ movie }) => {
   );
 };
 
-export default Movie;
+export default FeaturedMovie;
