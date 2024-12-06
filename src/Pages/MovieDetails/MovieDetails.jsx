@@ -5,9 +5,15 @@ import Rating from "react-rating";
 import { useLoaderData } from "react-router-dom";
 
 const MovieDetails = () => {
-  const movieData = useLoaderData();
+  const singleMovieData = useLoaderData();
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:4000/movie/${id}`, {
+      method: "DELETE",
+    }).then((res) => res.json());
+  };
   const { _id, poster, title, genre, duration, year, rating, summary } =
-    movieData;
+    singleMovieData;
   return (
     <div className="w-10/12 mx-auto my-10">
       <div className="lg:flex lg:flex-row items-center">
@@ -50,7 +56,10 @@ const MovieDetails = () => {
             </div>
           </div>
           <div className="flex py-4">
-            <button className="btn btn-success block mx-auto text-white">
+            <button
+              onClick={() => handleDelete(_id)}
+              className="btn btn-success block mx-auto text-white"
+            >
               Delete Movie
             </button>
             <button className="btn btn-success block mx-auto text-white">

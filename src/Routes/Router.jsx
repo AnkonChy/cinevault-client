@@ -8,10 +8,12 @@ import PrivateRoute from "../Routes/PrivateRoute/PrivateRoute";
 import AllMovies from "../Pages/AllMovies/AllMovies";
 import MovieDetails from "../Pages/MovieDetails/MovieDetails";
 import Favourite from "../Components/Favourite/Favourite";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
