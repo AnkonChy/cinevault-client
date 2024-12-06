@@ -9,6 +9,7 @@ import AllMovies from "../Pages/AllMovies/AllMovies";
 import MovieDetails from "../Pages/MovieDetails/MovieDetails";
 import Favourite from "../Components/Favourite/Favourite";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import UpdateMovie from "../Pages/UpdateMovie/UpdateMovie";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -62,6 +63,16 @@ const router = createBrowserRouter([
             <Favourite></Favourite>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateMovie></UpdateMovie>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/movie/${params.id}`),
       },
     ],
   },

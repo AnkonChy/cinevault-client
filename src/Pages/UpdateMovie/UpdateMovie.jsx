@@ -1,68 +1,44 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
-import { toast } from "react-toastify";
-import { AuthContext } from "../../Components/Provider/AuthProvider/AuthProvider";
-import Swal from "sweetalert2";
-const AddMovie = () => {
-  const { user } = useContext(AuthContext);
-  const { email } = user;
-  const [rating, setRating] = useState(0);
+
+const UpdateMovie = () => {
+  const { id } = useParams();
+  const singleMovieData = useLoaderData();
+
+  const [poster, setPoster] = useState(singleMovieData.poster);
+  const [title, setTitle] = useState(singleMovieData.title);
+  const [genre, setGenre] = useState(singleMovieData.genre);
+  const [duration, setDuration] = useState(singleMovieData.duration);
+  const [year, setYear] = useState(singleMovieData.year);
+  const [rating, setRating] = useState(singleMovieData.rating);
+  const [summary, setSummary] = useState(singleMovieData.summary);
 
   const handleRating = (rate) => {
     setRating(rate);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-
-    const poster = form.poster.value;
-    const title = form.title.value;
-    const genre = form.genre.value;
-    const duration = form.duration.value;
-    const year = form.year.value;
-    const summary = form.summary.value;
-
-    if (!/^(https?:\/\/)([\w\-]+(\.[\w\-]+)+)(\/[^\s]*)?$/.test(poster)) {
-      toast.warn("Please give a image link");
-      return;
-    }
-    if (title.length < 2) {
-      toast.warn("Title must be 3 characters");
-      return;
-    }
-    if (duration < 60) {
-      toast.warn("Duration must exceed 60 minutes");
-      return;
-    }
-    if (rating === 0) {
-      toast.warn("Please give a rating");
-      return;
-    }
-    if (summary.length < 10) {
-      toast.warn("Summary must be 10 characters");
-      return;
-    }
+  const handleSubmit = () => {
     const data = {
       poster: poster,
       title: title,
       genre: genre,
       duration: duration,
       year: year,
-      summary: summary,
       rating: rating,
-      email: email,
+      summary: summary,
     };
-
-    fetch("http://localhost:4000/addMovie", {
-      method: "POST",
+    fetch(`http://localhost:4000/update/${id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => toast.success("Added new movie successfully"));
+      .then((result) => {
+        alert("Data updated");
+      });
   };
   return (
     <div>
@@ -75,6 +51,8 @@ const AddMovie = () => {
                 <span className="label-text font-bold">Poster</span>
               </label>
               <input
+                value={poster}
+                onChange={(e) => setPoster(e.target.value)}
                 type="text"
                 name="poster"
                 placeholder="Poster"
@@ -87,6 +65,8 @@ const AddMovie = () => {
                 <span className="label-text">Title</span>
               </label>
               <input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
                 type="text"
                 name="title"
                 placeholder="Title"
@@ -104,6 +84,8 @@ const AddMovie = () => {
                 className="input input-bordered "
                 name="genre"
                 id="genre"
+                value={genre}
+                onChange={(e) => setGenre(e.target.value)}
                 required
               >
                 <option value="" disabled selected>
@@ -124,6 +106,8 @@ const AddMovie = () => {
                 <span className="label-text">Duration(min)</span>
               </label>
               <input
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
                 type="number"
                 name="duration"
                 placeholder="Duration"
@@ -139,6 +123,8 @@ const AddMovie = () => {
               </label>
               <select
                 className="input input-bordered "
+                value={year}
+                onChange={(e) => setYear(e.target.value)}
                 name="year"
                 id="year"
                 required
@@ -161,21 +147,11 @@ const AddMovie = () => {
                 <span className="label-text">Rating</span>
               </label>
               <Rating
-                className=""
+                initialValue={rating}
+                onChange={(e) => setRating(e.target.value)}
                 onClick={handleRating}
                 required
-                // onPointerEnter={onPointerEnter}
-                // onPointerLeave={onPointerLeave}
-                // onPointerMove={onPointerMove}
-                /* Available Props */
               />
-              {/* <input
-                type="text"
-                name="rating"
-                placeholder="rating"
-                className="input input-bordered"
-                required
-              /> */}
             </div>
           </div>
           <div className="flex gap-6 ">
@@ -184,6 +160,8 @@ const AddMovie = () => {
                 <span className="label-text">Summary</span>
               </label>
               <textarea
+                value={summary}
+                onChange={(e) => setSummary(e.target.value)}
                 required
                 name="summary"
                 id="summary"
@@ -195,15 +173,17 @@ const AddMovie = () => {
           </div>
 
           {/* End of Labels */}
-          <input
+          <button
+            onClick={handleSubmit}
             type="submit"
-            value="Add Schedule"
             className="btn w-full bg-green-800 text-white mt-6"
-          />
+          >
+            Update Movie
+          </button>
         </form>
       </div>
     </div>
   );
 };
 
-export default AddMovie;
+export default UpdateMovie;

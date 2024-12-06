@@ -2,15 +2,21 @@ import React from "react";
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import Rating from "react-rating";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 const MovieDetails = () => {
   const singleMovieData = useLoaderData();
+  const navigate = useNavigate();
 
   const handleDelete = (id) => {
     fetch(`http://localhost:4000/movie/${id}`, {
       method: "DELETE",
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        navigate("/allMovies");
+      });
   };
   const { _id, poster, title, genre, duration, year, rating, summary } =
     singleMovieData;
@@ -65,6 +71,11 @@ const MovieDetails = () => {
             <button className="btn btn-success block mx-auto text-white">
               Add to Favourtie
             </button>
+            <Link to={`/update/${_id}`}>
+              <button className="btn btn-success block mx-auto text-white">
+                Update Movie
+              </button>
+            </Link>
           </div>
         </div>
       </div>
