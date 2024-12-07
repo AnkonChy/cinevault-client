@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "../../Components/Slider/Slider";
 import { NavLink, useLoaderData } from "react-router-dom";
 import FeaturedMovie from "../../Components/FeaturedMovie/FeaturedMovie";

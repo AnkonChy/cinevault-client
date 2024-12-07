@@ -1,8 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
+
+  const [theme, setTheme] = useState("light");
+
+  const handleThemeChange = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
 
   return (
     <div className="navbar bg-base-100 mt-4 mb-7 w-11/12 mx-auto">
@@ -23,6 +31,12 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-3">
+        <input
+          type="checkbox"
+          className="toggle theme-controller"
+          onChange={handleThemeChange}
+          checked={theme === "dark"}
+        />
         {user ? (
           <img
             title={user.displayName}

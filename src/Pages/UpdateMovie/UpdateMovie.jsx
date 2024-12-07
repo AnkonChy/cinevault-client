@@ -5,10 +5,18 @@ import { Rating } from "react-simple-star-rating";
 const UpdateMovie = () => {
   const { id } = useParams();
   const singleMovieData = useLoaderData();
+  const [selectedGenres, setSelectedGenres] = useState(
+    singleMovieData.genre || []
+  );
+
+  const handleGenreChange = (event) => {
+    const selectedOptions = Array.from(event.target.selectedOptions);
+    const values = selectedOptions.map((option) => option.value);
+    setSelectedGenres(values);
+  };
 
   const [poster, setPoster] = useState(singleMovieData.poster);
   const [title, setTitle] = useState(singleMovieData.title);
-  const [genre, setGenre] = useState(singleMovieData.genre);
   const [duration, setDuration] = useState(singleMovieData.duration);
   const [year, setYear] = useState(singleMovieData.year);
   const [rating, setRating] = useState(singleMovieData.rating);
@@ -19,10 +27,30 @@ const UpdateMovie = () => {
   };
 
   const handleSubmit = () => {
+    if (!/^(https?:\/\/)([\w\-]+(\.[\w\-]+)+)(\/[^\s]*)?$/.test(poster)) {
+      toast.warn("Please give a image link");
+      return;
+    }
+    if (title.length < 2) {
+      toast.warn("Title must be 3 characters");
+      return;
+    }
+    if (duration < 60) {
+      toast.warn("Duration must exceed 60 minutes");
+      return;
+    }
+    if (rating === 0) {
+      toast.warn("Please give a rating");
+      return;
+    }
+    if (summary.length < 10) {
+      toast.warn("Summary must be 10 characters");
+      return;
+    }
     const data = {
       poster: poster,
       title: title,
-      genre: genre,
+      genre: selectedGenres,
       duration: duration,
       year: year,
       rating: rating,
@@ -81,14 +109,15 @@ const UpdateMovie = () => {
                 <span className="label-text font-bold">Genre</span>
               </label>
               <select
-                className="input input-bordered "
+                className="input input-bordered  h-40"
                 name="genre"
                 id="genre"
-                value={genre}
-                onChange={(e) => setGenre(e.target.value)}
+                value={selectedGenres}
+                onChange={handleGenreChange}
                 required
+                multiple
               >
-                <option value="" disabled selected>
+                <option disabled selected>
                   Select Genre
                 </option>
                 <option value="comedy">Comedy</option>

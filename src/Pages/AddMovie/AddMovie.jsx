@@ -8,6 +8,14 @@ const AddMovie = () => {
   const { email } = user;
   const [rating, setRating] = useState(0);
 
+  const [selectedGenres, setSelectedGenres] = useState([]);
+
+  const handleChange = (event) => {
+    const selectedOptions = Array.from(event.target.selectedOptions);
+    const values = selectedOptions.map((option) => option.value);
+    setSelectedGenres(values);
+  };
+
   const handleRating = (rate) => {
     setRating(rate);
   };
@@ -18,7 +26,6 @@ const AddMovie = () => {
 
     const poster = form.poster.value;
     const title = form.title.value;
-    const genre = form.genre.value;
     const duration = form.duration.value;
     const year = form.year.value;
     const summary = form.summary.value;
@@ -46,13 +53,15 @@ const AddMovie = () => {
     const data = {
       poster: poster,
       title: title,
-      genre: genre,
+      genre: selectedGenres,
       duration: duration,
       year: year,
       summary: summary,
       rating: rating,
       email: email,
     };
+
+    console.log(data);
 
     fetch("http://localhost:4000/addMovie", {
       method: "POST",
@@ -101,12 +110,14 @@ const AddMovie = () => {
                 <span className="label-text font-bold">Genre</span>
               </label>
               <select
-                className="input input-bordered "
+                className="input input-bordered h-40"
                 name="genre"
                 id="genre"
                 required
+                multiple
+                onChange={handleChange}
               >
-                <option value="" disabled selected>
+                <option disabled selected>
                   Select Genre
                 </option>
                 <option value="comedy">Comedy</option>

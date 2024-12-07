@@ -4,6 +4,7 @@ import Movie from "../../Components/Movie/Movie";
 
 const AllMovies = () => {
   const moviesData = useLoaderData();
+
   const [search, setSearch] = useState("");
 
   const [movies, setMovies] = useState(moviesData);
