@@ -10,6 +10,7 @@ import MovieDetails from "../Pages/MovieDetails/MovieDetails";
 import FavMovies from "../Components/FavMovies/FavMovies";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import UpdateMovie from "../Pages/UpdateMovie/UpdateMovie";
+import AboutUs from "../Pages/AboutUs/AboutUs";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:4000/movie/${params.id}`),
       },
+      {
+        path:"/aboutUs",
+        element:<AboutUs></AboutUs>
+      }
     ],
   },
 ]);
