@@ -1,8 +1,4 @@
 import React from "react";
-import { CiStar } from "react-icons/ci";
-import { FaStar } from "react-icons/fa";
-import Rating from "react-rating";
-import { Link } from "react-router-dom";
 
 const LatestMovies = ({ movie }) => {
   const { _id, poster, title, genre, duration, year, rating } = movie;

@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 mt-4 mb-7 w-11/12 mx-auto">
+    <div className="navbar bg-base-100 mt-4 mb-4 w-11/12 mx-auto">
       <div className="navbar-start">
         <div>
           <Link className="animate__animated animate__rubberBand Left text-3xl font-bold">

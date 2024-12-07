@@ -21,11 +21,11 @@ const Slider = () => {
       navigation
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      autoplay={{ delay: 9500, disableOnInteraction: false }}
+      autoplay={{ delay: 2500, disableOnInteraction: false }}
     >
       <SwiperSlide>
         <img
-          className="w-full lg:h-[600px] object-fill"
+          className="w-full lg:h-[600px] object-cover"
           src="https://i.ibb.co.com/6FCPG9t/venom.png"
           alt=""
         />
@@ -53,14 +53,14 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-full lg:h-[600px] lg:object-fill"
+          className="w-full lg:h-[600px] lg:object-cover"
           src="https://i.ibb.co.com/Bs8pm8Z/Fvn-RS1t-Xw-AMZTN.jpg"
           alt=""
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-full lg:h-[600px] lg:object-center"
+          className="w-full lg:h-[600px] lg:object-fill"
           src="https://i.ibb.co.com/r0SFtqX/ant-man.jpg"
           alt=""
         />
