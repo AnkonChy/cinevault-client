@@ -20,6 +20,7 @@ const UpdateMovie = () => {
   const [duration, setDuration] = useState(singleMovieData.duration);
   const [year, setYear] = useState(singleMovieData.year);
   const [rating, setRating] = useState(singleMovieData.rating);
+  const [language, setLanguage] = useState(singleMovieData.language);
   const [summary, setSummary] = useState(singleMovieData.summary);
 
   const handleRating = (rate) => {
@@ -54,6 +55,7 @@ const UpdateMovie = () => {
       duration: duration,
       year: year,
       rating: rating,
+      language: language,
       summary: summary,
     };
     fetch(`http://localhost:4000/update/${id}`, {
@@ -130,19 +132,21 @@ const UpdateMovie = () => {
                 <option value="sci-fi">Science Fiction</option>
               </select>
             </div>
-            <div className="form-control md:w-1/2 mt-6 md:mt-0">
+
+            <div className="form-control w-full md:w-1/2 mt-6 md:mt-0">
               <label className="label font-bold">
-                <span className="label-text">Duration(min)</span>
+                <span className="label-text">Summary</span>
               </label>
-              <input
-                value={duration}
-                onChange={(e) => setDuration(e.target.value)}
-                type="number"
-                name="duration"
-                placeholder="Duration"
-                className="input input-bordered"
+              <textarea
+                value={summary}
+                onChange={(e) => setSummary(e.target.value)}
                 required
-              />
+                name="summary"
+                id="summary"
+                rows="5"
+                className="rounded-md p-3"
+                placeholder="Write summary"
+              ></textarea>
             </div>
           </div>
           <div className="md:flex gap-6 ">
@@ -184,20 +188,41 @@ const UpdateMovie = () => {
             </div>
           </div>
           <div className="flex gap-6 ">
-            <div className="form-control w-full md:w-1/2 mt-6 md:mt-0">
-              <label className="label font-bold">
-                <span className="label-text">Summary</span>
+            <div className="form-control md:w-1/2">
+              <label className="label">
+                <span className="label-text font-bold">Release Year</span>
               </label>
-              <textarea
-                value={summary}
-                onChange={(e) => setSummary(e.target.value)}
+              <select
+                className="input input-bordered "
+                value={year}
+                onChange={(e) => setLanguage(e.target.value)}
+                name="language"
+                id="language"
                 required
-                name="summary"
-                id="summary"
-                rows="5"
-                className="rounded-md p-3"
-                placeholder="Write summary"
-              ></textarea>
+              >
+                <option value="" disabled selected>
+                  Select Language
+                </option>
+                <option value="English">English</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Bangla">Bangla</option>
+                <option value="Telegu">Telegu</option>
+                <option value="Malayalam">Malayalam</option>
+              </select>
+            </div>
+            <div className="form-control md:w-1/2 mt-6 md:mt-0">
+              <label className="label font-bold">
+                <span className="label-text">Duration(min)</span>
+              </label>
+              <input
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+                type="number"
+                name="duration"
+                placeholder="Duration"
+                className="input input-bordered"
+                required
+              />
             </div>
           </div>
 

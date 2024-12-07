@@ -22,7 +22,12 @@ const router = createBrowserRouter([
         loader: async () => {
           const sortMoviesRes = await fetch("http://localhost:4000/sortMovies");
           const sortMoviesData = await sortMoviesRes.json();
-          return { sortMoviesData };
+
+          const latestMoviesRes = await fetch(
+            "http://localhost:4000/latestMovies"
+          );
+          const latestMoviesData = await latestMoviesRes.json();
+          return { sortMoviesData, latestMoviesData };
         },
       },
       {

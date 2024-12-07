@@ -29,6 +29,7 @@ const AddMovie = () => {
     const duration = form.duration.value;
     const year = form.year.value;
     const summary = form.summary.value;
+    const language = form.language.value;
 
     if (!/^(https?:\/\/)([\w\-]+(\.[\w\-]+)+)(\/[^\s]*)?$/.test(poster)) {
       toast.warn("Please give a image link");
@@ -38,8 +39,8 @@ const AddMovie = () => {
       toast.warn("Title must be 3 characters");
       return;
     }
-    if (duration < 60) {
-      toast.warn("Duration must exceed 60 minutes");
+    if (duration < 60 || duration > 150) {
+      toast.warn("Duration must exceed 60 and 150 minutes");
       return;
     }
     if (rating === 0) {
@@ -59,6 +60,7 @@ const AddMovie = () => {
       summary: summary,
       rating: rating,
       email: email,
+      language: language,
     };
 
     console.log(data);
@@ -130,17 +132,18 @@ const AddMovie = () => {
                 <option value="sci-fi">Science Fiction</option>
               </select>
             </div>
-            <div className="form-control md:w-1/2 mt-6 md:mt-0">
+            <div className="form-control w-full md:w-1/2 mt-6 md:mt-0">
               <label className="label font-bold">
-                <span className="label-text">Duration(min)</span>
+                <span className="label-text">Summary</span>
               </label>
-              <input
-                type="number"
-                name="duration"
-                placeholder="Duration"
-                className="input input-bordered"
+              <textarea
                 required
-              />
+                name="summary"
+                id="summary"
+                rows="5"
+                className="rounded-md p-3"
+                placeholder="Write summary"
+              ></textarea>
             </div>
           </div>
           <div className="md:flex gap-6 ">
@@ -171,37 +174,41 @@ const AddMovie = () => {
               <label className="label font-bold">
                 <span className="label-text">Rating</span>
               </label>
-              <Rating
-                className=""
-                onClick={handleRating}
-                required
-                // onPointerEnter={onPointerEnter}
-                // onPointerLeave={onPointerLeave}
-                // onPointerMove={onPointerMove}
-                /* Available Props */
-              />
-              {/* <input
-                type="text"
-                name="rating"
-                placeholder="rating"
-                className="input input-bordered"
-                required
-              /> */}
+              <Rating className="" onClick={handleRating} required />
             </div>
           </div>
-          <div className="flex gap-6 ">
-            <div className="form-control w-full md:w-1/2 mt-6 md:mt-0">
-              <label className="label font-bold">
-                <span className="label-text">Summary</span>
+          <div className="md:flex gap-6 ">
+            <div className="form-control md:w-1/2">
+              <label className="label">
+                <span className="label-text font-bold">Language</span>
               </label>
-              <textarea
+              <select
+                className="input input-bordered "
+                name="language"
+                id="language"
                 required
-                name="summary"
-                id="summary"
-                rows="5"
-                className="rounded-md p-3"
-                placeholder="Write summary"
-              ></textarea>
+              >
+                <option value="" disabled selected>
+                  Select Language
+                </option>
+                <option value="English">English</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Bangla">Bangla</option>
+                <option value="Telegu">Telegu</option>
+                <option value="Malayalam">Malayalam</option>
+              </select>
+            </div>
+            <div className="form-control md:w-1/2 mt-6 md:mt-0">
+              <label className="label font-bold">
+                <span className="label-text">Duration(min)</span>
+              </label>
+              <input
+                type="number"
+                name="duration"
+                placeholder="Duration"
+                className="input input-bordered"
+                required
+              />
             </div>
           </div>
 
