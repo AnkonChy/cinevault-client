@@ -27,7 +27,11 @@ const router = createBrowserRouter([
             "http://localhost:4000/latestMovies"
           );
           const latestMoviesData = await latestMoviesRes.json();
-          return { sortMoviesData, latestMoviesData };
+          const banglaMoviesRes = await fetch(
+            "http://localhost:4000/banglaMovies"
+          );
+          const banglaMoviesData = await banglaMoviesRes.json();
+          return { sortMoviesData, latestMoviesData, banglaMoviesData };
         },
       },
       {

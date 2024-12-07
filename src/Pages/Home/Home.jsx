@@ -3,9 +3,11 @@ import Slider from "../../Components/Slider/Slider";
 import { NavLink, useLoaderData } from "react-router-dom";
 import FeaturedMovie from "../../Components/FeaturedMovie/FeaturedMovie";
 import LatestMovies from "../../Components/LatestMovies/LatestMovies";
+import BanglaMovies from "../../Components/BanglaMovies/BanglaMovies";
 
 const Home = () => {
-  const { sortMoviesData, latestMoviesData } = useLoaderData();
+  const { sortMoviesData, latestMoviesData, banglaMoviesData } =
+    useLoaderData();
 
   return (
     <div>
@@ -32,6 +34,16 @@ const Home = () => {
         <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-6  my-10">
           {latestMoviesData.slice(0, 3).map((movie) => (
             <LatestMovies key={movie._id} movie={movie}></LatestMovies>
+          ))}
+        </div>
+      </div>
+      <div className="mt-20 w-11/12 mx-auto">
+        <h1 className=" animate__animated animate__fadeInLeft text-3xl md:text-4xl lg:text-5xl font-bold">
+          Bangla Movies
+        </h1>
+        <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-6  my-10">
+          {banglaMoviesData.slice(0, 3).map((movie) => (
+            <BanglaMovies key={movie._id} movie={movie}></BanglaMovies>
           ))}
         </div>
       </div>

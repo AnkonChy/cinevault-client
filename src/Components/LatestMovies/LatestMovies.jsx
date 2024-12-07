@@ -7,11 +7,16 @@ import { Link } from "react-router-dom";
 const LatestMovies = ({ movie }) => {
   const { _id, poster, title, genre, duration, year, rating } = movie;
   return (
-    <div className="card bg-base-100 w-96 shadow-xl">
+    <div className="card bg-white shadow-xl relative">
       <figure>
-        <img src={poster} alt="Shoes" />
+        <img
+          className="object-cover w-full h-[400px]"
+          src={poster}
+          alt="Shoes"
+        />
       </figure>
-      <div className="card-body">
+
+      <div className="card-body absolute text-white bottom-0 backdrop-blur-sm bg-black/20 w-full">
         <h2 className="card-title">
           {title}
           <div className="badge badge-secondary">{year}</div>
