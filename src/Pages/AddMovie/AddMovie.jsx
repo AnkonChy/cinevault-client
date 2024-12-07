@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Rating } from "react-simple-star-rating";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Components/Provider/AuthProvider/AuthProvider";
-import Swal from "sweetalert2";
+
 const AddMovie = () => {
   const { user } = useContext(AuthContext);
   const { email } = user;

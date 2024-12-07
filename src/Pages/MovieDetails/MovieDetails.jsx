@@ -1,11 +1,14 @@
-import React from "react";
+import { useContext } from "react";
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Components/Provider/AuthProvider/AuthProvider";
 
 const MovieDetails = () => {
   const singleMovieData = useLoaderData();
+  const { user } = useContext(AuthContext);
+  const { email } = user;
   const navigate = useNavigate();
 
   const handleDelete = (id) => {
@@ -17,6 +20,28 @@ const MovieDetails = () => {
         console.log(result);
         navigate("/allMovies");
       });
+  };
+  const data = {
+    poster: singleMovieData.poster,
+    title: singleMovieData.title,
+    genre: singleMovieData.genre,
+    duration: singleMovieData.duration,
+    year: singleMovieData.year,
+    summary: singleMovieData.summary,
+    rating: singleMovieData.rating,
+    email: email,
+  };
+
+  const handleAddToFav = () => {
+    fetch(`http://localhost:4000/addFavMovie`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => alert("added"));
   };
   const { _id, poster, title, genre, duration, year, rating, summary } =
     singleMovieData;
@@ -68,7 +93,12 @@ const MovieDetails = () => {
             >
               Delete Movie
             </button>
-            <button className="btn btn-success block mx-auto text-white">
+            <button
+              onClick={() => {
+                handleAddToFav(singleMovieData);
+              }}
+              className="btn btn-success block mx-auto text-white"
+            >
               Add to Favourtie
             </button>
             <Link to={`/update/${_id}`}>

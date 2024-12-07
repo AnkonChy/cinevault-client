@@ -7,7 +7,7 @@ import AddMovie from "../Pages/AddMovie/AddMovie";
 import PrivateRoute from "../Routes/PrivateRoute/PrivateRoute";
 import AllMovies from "../Pages/AllMovies/AllMovies";
 import MovieDetails from "../Pages/MovieDetails/MovieDetails";
-import Favourite from "../Components/Favourite/Favourite";
+import FavMovies from "../Components/FavMovies/FavMovies";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import UpdateMovie from "../Pages/UpdateMovie/UpdateMovie";
 const router = createBrowserRouter([
@@ -57,10 +57,10 @@ const router = createBrowserRouter([
           fetch(`http://localhost:4000/movie/${params.id}`),
       },
       {
-        path: "/favourite",
+        path: "/myFavourite",
         element: (
           <PrivateRoute>
-            <Favourite></Favourite>
+            <FavMovies></FavMovies>
           </PrivateRoute>
         ),
       },

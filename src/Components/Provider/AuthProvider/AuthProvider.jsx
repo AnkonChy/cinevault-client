@@ -15,6 +15,16 @@ const AuthProvider = ({ children }) => {
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  // const [favMovies, setFavMovies] = useState([]);
+
+  // const handleAddToFav = (signleMovieData) => {
+  //   const isExist = favMovies.find((m) => m._id === signleMovieData._id);
+
+  //   if (!isExist) {
+  //     setFavMovies([...favMovies, signleMovieData]);
+  //     alert("success");
+  //   }
+  // };
 
   const handleRegister = (email, password) => {
     setLoading(true);

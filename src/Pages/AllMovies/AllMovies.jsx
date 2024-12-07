@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Movie from "../../Components/Movie/Movie";
 
 const AllMovies = () => {
   const movies = useLoaderData();
+
   return (
     <div className="w-11/12 mx-auto">
       <h1 className="text-4xl text-center my-6">All Movies</h1>
