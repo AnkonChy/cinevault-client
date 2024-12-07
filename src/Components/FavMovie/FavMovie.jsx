@@ -24,7 +24,14 @@ const FavMovie = ({ favMovie, favMovies, setFavMovies }) => {
       <div className="card-body">
         <h2 className="card-title text-2xl">{title}</h2>
         <div className="flex justify-between items-center">
-          <p className="font-semibold">Genre : {genre}</p>
+          <p>
+            <span className="font-bold">Genre</span>
+            {genre.map((g, index) => (
+              <ul className="text-sm font-medium list-disc ml-6" key={index}>
+                <li>{g}</li>
+              </ul>
+            ))}
+          </p>
           <p className="font-semibold text-right">Duration : {duration}</p>
         </div>
         <div className="flex justify-between items-center">

@@ -15,7 +15,7 @@ const FeaturedMovie = ({ movie }) => {
         <h2 className="card-title text-2xl">{title}</h2>
         <div className="flex justify-between items-center">
           <p className="font-semibold">Genre : {genre}</p>
-          <p className="font-semibold text-right">Duration : {duration}</p>
+          <p className="font-semibold text-right">Duration : {duration} mins</p>
         </div>
         <div className="flex justify-between items-center">
           <p className="font-semibold">Release Year: {year}</p>

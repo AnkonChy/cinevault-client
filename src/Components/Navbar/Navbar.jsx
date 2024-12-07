@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
+import "./Navbar.css";
+// import "Navbar.css";
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
 
@@ -25,7 +27,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 text-lg md:text-xl font-semibold gap-6">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/allMovies">All Movies</NavLink>
-          <NavLink to="/addMovies">Add Movies</NavLink>
+          <NavLink to="/addMovies">Add Movie</NavLink>
           <NavLink to="/myFavourite">My Favourite</NavLink>
           <NavLink to="/aboutUs">About us</NavLink>
         </ul>

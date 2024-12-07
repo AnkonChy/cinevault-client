@@ -36,10 +36,10 @@ const AddMovie = () => {
       return;
     }
     if (title.length < 2) {
-      toast.warn("Title must be 3 characters");
+      toast.warn("Title must be at least 2 characters");
       return;
     }
-    if (duration < 60 || duration > 150) {
+    if (duration < 60 || duration > 200) {
       toast.warn("Duration must exceed 60 and 150 minutes");
       return;
     }

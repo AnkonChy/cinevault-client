@@ -20,12 +20,13 @@ const Footer = () => {
         <a className="link link-hover">Press kit</a>
       </nav>
       <nav>
+        <h6 className="footer-title">CineVault</h6>
         <img
           className="w-14 h-14 rounded-full object-cover"
           src="https://i.ibb.co.com/LShdnSG/pexels-tima-miroshnichenko-5662857.jpg"
           alt=""
         />
-        <h6 className="footer-title">Social</h6>
+        <h6 className="footer-title mt-2">Social</h6>
         <div className="grid grid-flow-col gap-4">
           <Link to="https://x.com/AnkonChy2682">
             <svg
@@ -64,6 +65,7 @@ const Footer = () => {
             </svg>
           </a>
         </div>
+        <p className="text-gray-300 py-2">Copyright © {new Date().getFullYear()} - All right reserved</p>
       </nav>
     </footer>
   );

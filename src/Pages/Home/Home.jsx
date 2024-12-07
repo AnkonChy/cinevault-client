@@ -17,7 +17,7 @@ const Home = () => {
           Featured Movies
         </h1>
         <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-6  my-10">
-          {sortMoviesData.slice(0, 6).map((movie) => (
+          {sortMoviesData.map((movie) => (
             <FeaturedMovie key={movie._id} movie={movie}></FeaturedMovie>
           ))}
         </div>
