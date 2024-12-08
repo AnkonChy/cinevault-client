@@ -35,7 +35,7 @@ const Navbar = () => {
       <div className="navbar-end gap-3">
         <input
           type="checkbox"
-          className="toggle theme-controller"
+          className="toggle theme-controller hidden md:block"
           onChange={handleThemeChange}
           checked={theme === "dark"}
         />
