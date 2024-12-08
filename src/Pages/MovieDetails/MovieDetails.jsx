@@ -13,7 +13,7 @@ const MovieDetails = () => {
   const navigate = useNavigate();
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:4000/movie/${id}`, {
+    fetch(`https://movie-portal-server-neon.vercel.app/movie/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -33,7 +33,7 @@ const MovieDetails = () => {
   };
 
   const handleAddToFav = () => {
-    fetch(`http://localhost:4000/addFavMovie`, {
+    fetch(`https://movie-portal-server-neon.vercel.app/addFavMovie`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

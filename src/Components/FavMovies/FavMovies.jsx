@@ -10,7 +10,7 @@ const Favourite = () => {
   const [favMovies, setFavMovies] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/allFavMovies?email=${email}`)
+    fetch(`https://movie-portal-server-neon.vercel.app/allFavMovies?email=${email}`)
       .then((res) => res.json())
       .then((data) => setFavMovies(data));
   }, [email]);

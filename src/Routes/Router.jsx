@@ -21,15 +21,15 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: async () => {
-          const sortMoviesRes = await fetch("http://localhost:4000/sortMovies");
+          const sortMoviesRes = await fetch("https://movie-portal-server-neon.vercel.app/sortMovies");
           const sortMoviesData = await sortMoviesRes.json();
 
           const latestMoviesRes = await fetch(
-            "http://localhost:4000/latestMovies"
+            "https://movie-portal-server-neon.vercel.app/latestMovies"
           );
           const latestMoviesData = await latestMoviesRes.json();
           const banglaMoviesRes = await fetch(
-            "http://localhost:4000/banglaMovies"
+            "https://movie-portal-server-neon.vercel.app/banglaMovies"
           );
           const banglaMoviesData = await banglaMoviesRes.json();
           return { sortMoviesData, latestMoviesData, banglaMoviesData };
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       {
         path: "/allMovies",
         element: <AllMovies></AllMovies>,
-        loader: () => fetch("http://localhost:4000/allMovies"),
+        loader: () => fetch("https://movie-portal-server-neon.vercel.app/allMovies"),
       },
       {
         path: "/movie/:id",
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/movie/${params.id}`),
+          fetch(`https://movie-portal-server-neon.vercel.app/movie/${params.id}`),
       },
       {
         path: "/myFavourite",
@@ -82,7 +82,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/movie/${params.id}`),
+          fetch(`https://movie-portal-server-neon.vercel.app/movie/${params.id}`),
       },
       {
         path:"/aboutUs",

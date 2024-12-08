@@ -10,7 +10,7 @@ const AllMovies = () => {
   const [movies, setMovies] = useState(moviesData);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/allMovies?searchParams=${search}`)
+    fetch(`https://movie-portal-server-neon.vercel.app/allMovies?searchParams=${search}`)
       .then((res) => res.json())
       .then((data) => setMovies(data));
   }, [search]);

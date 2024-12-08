@@ -18,7 +18,7 @@ const Navbar = () => {
     <div className="navbar bg-base-100 mt-4 mb-4 w-11/12 mx-auto">
       <div className="navbar-start">
         <div>
-          <Link className="animate__animated animate__rubberBand Left text-3xl font-bold">
+          <Link className="animate__animated animate__rubberBand Left text-2xl md:text-3xl font-bold">
             CineVault
           </Link>
         </div>

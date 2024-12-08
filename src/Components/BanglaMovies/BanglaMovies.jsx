@@ -9,10 +9,10 @@ const BanglaMovies = ({ movie }) => {
         <img src={poster} alt="banglaMovies" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
+        <h2 className="card-title text-3xl">{title}</h2>
         <div className="card-actions justify-end">
           <Link to={`/movie/${_id}`}>
-            <button className="mt-20 text-lg py-2 px-6 rounded-full bg-gray-800 text-white border hover:bg-blue-900">
+            <button className="mt-72 text-lg py-2 px-6 rounded-full bg-gray-800 text-white border hover:bg-blue-900">
               See Details
             </button>
           </Link>
