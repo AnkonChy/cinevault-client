@@ -4,7 +4,7 @@ CineVault is a user-friendly movie portal designed to simplify the process of ex
 
 ## Live Site URL
 
-[Your Live Site URL]
+[https://portal-91857.web.app/]
 
 ## Features
 
@@ -20,4 +20,4 @@ CineVault is a user-friendly movie portal designed to simplify the process of ex
 - Frontend: React, Tailwind CSS
 - Backend: Node.js, Express, MongoDB
 - Authentication: Firebase, Google OAuth
-- Deployment: Netlify (Frontend), Vercel (Backend)
+- Deployment: Firebase Hosting (Frontend), Vercel (Backend)
