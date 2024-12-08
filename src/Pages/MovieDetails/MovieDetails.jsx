@@ -18,7 +18,6 @@ const MovieDetails = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         navigate("/allMovies");
       });
   };

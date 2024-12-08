@@ -5,7 +5,6 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 const Movie = ({ movie }) => {
   const { _id, poster, title, genre, duration, year, rating } = movie;
-  console.log(movie);
   return (
     <div className="card card-compact bg-base-100 shadow-xl rounded-none">
       <figure>

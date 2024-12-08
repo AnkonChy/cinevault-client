@@ -63,8 +63,6 @@ const AddMovie = () => {
       language: language,
     };
 
-    console.log(data);
-
     fetch("http://localhost:4000/addMovie", {
       method: "POST",
       headers: {
