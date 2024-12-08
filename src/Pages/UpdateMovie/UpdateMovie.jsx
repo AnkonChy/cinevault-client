@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
+import { toast } from "react-toastify";
 
 const UpdateMovie = () => {
   const { id } = useParams();
@@ -27,7 +28,8 @@ const UpdateMovie = () => {
     setRating(rate);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (!/^(https?:\/\/)([\w\-]+(\.[\w\-]+)+)(\/[^\s]*)?$/.test(poster)) {
       toast.warn("Please give a image link");
       return;
@@ -67,7 +69,7 @@ const UpdateMovie = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert("Data updated");
+        toast.success("Movie data updated");
       });
   };
   return (
@@ -130,6 +132,7 @@ const UpdateMovie = () => {
                 <option value="animation">Animation</option>
                 <option value="romance">Romance</option>
                 <option value="sci-fi">Science Fiction</option>
+                <option value="sci-fi">Superhero Fiction</option>
               </select>
             </div>
 
@@ -208,6 +211,7 @@ const UpdateMovie = () => {
                 <option value="Bangla">Bangla</option>
                 <option value="Telegu">Telegu</option>
                 <option value="Malayalam">Malayalam</option>
+                <option value="Malayalam">Tamil</option>
               </select>
             </div>
             <div className="form-control md:w-1/2 mt-6 md:mt-0">

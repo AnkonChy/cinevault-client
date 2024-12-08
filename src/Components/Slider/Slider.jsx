@@ -65,6 +65,20 @@ const Slider = () => {
           alt=""
         />
       </SwiperSlide>
+      <SwiperSlide>
+        <img
+          className="w-full lg:h-[600px] lg:object-fill"
+          src="https://i.ibb.co.com/F69D2Q8/Maharaja-Movie-Review-2024-Indian-Community.webp"
+          alt=""
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          className="w-full lg:h-[600px] lg:object-fill"
+          src="https://i.ibb.co.com/RCzc31y/hq720.jpg"
+          alt=""
+        />
+      </SwiperSlide>
     </Swiper>
   );
 };

@@ -130,6 +130,7 @@ const AddMovie = () => {
                 <option value="animation">Animation</option>
                 <option value="romance">Romance</option>
                 <option value="sci-fi">Science Fiction</option>
+                <option value="sci-fi">Superhero Fiction</option>
               </select>
             </div>
             <div className="form-control w-full md:w-1/2 mt-6 md:mt-0">
@@ -196,6 +197,7 @@ const AddMovie = () => {
                 <option value="Bangla">Bangla</option>
                 <option value="Telegu">Telegu</option>
                 <option value="Malayalam">Malayalam</option>
+                <option value="Malayalam">Tamil</option>
               </select>
             </div>
             <div className="form-control md:w-1/2 mt-6 md:mt-0">
