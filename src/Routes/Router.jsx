@@ -11,6 +11,7 @@ import FavMovies from "../Components/FavMovies/FavMovies";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import UpdateMovie from "../Pages/UpdateMovie/UpdateMovie";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import Support from "../Pages/Support/Support";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,15 +22,15 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: async () => {
-          const sortMoviesRes = await fetch("https://movie-portal-server-neon.vercel.app/sortMovies");
+          const sortMoviesRes = await fetch("http://localhost:4000/sortMovies");
           const sortMoviesData = await sortMoviesRes.json();
 
           const latestMoviesRes = await fetch(
-            "https://movie-portal-server-neon.vercel.app/latestMovies"
+            "http://localhost:4000/latestMovies"
           );
           const latestMoviesData = await latestMoviesRes.json();
           const banglaMoviesRes = await fetch(
-            "https://movie-portal-server-neon.vercel.app/banglaMovies"
+            "http://localhost:4000/banglaMovies"
           );
           const banglaMoviesData = await banglaMoviesRes.json();
           return { sortMoviesData, latestMoviesData, banglaMoviesData };
@@ -54,7 +55,7 @@ const router = createBrowserRouter([
       {
         path: "/allMovies",
         element: <AllMovies></AllMovies>,
-        loader: () => fetch("https://movie-portal-server-neon.vercel.app/allMovies"),
+        loader: () => fetch("http://localhost:4000/allMovies"),
       },
       {
         path: "/movie/:id",
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://movie-portal-server-neon.vercel.app/movie/${params.id}`),
+          fetch(`http://localhost:4000/movie/${params.id}`),
       },
       {
         path: "/myFavourite",
@@ -82,12 +83,16 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://movie-portal-server-neon.vercel.app/movie/${params.id}`),
+          fetch(`http://localhost:4000/movie/${params.id}`),
       },
       {
-        path:"/aboutUs",
-        element:<AboutUs></AboutUs>
-      }
+        path: "/aboutUs",
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/support",
+        element: <Support></Support>,
+      },
     ],
   },
 ]);

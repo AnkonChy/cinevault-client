@@ -10,14 +10,14 @@ const AllMovies = () => {
   const [movies, setMovies] = useState(moviesData);
 
   useEffect(() => {
-    fetch(`https://movie-portal-server-neon.vercel.app/allMovies?searchParams=${search}`)
+    fetch(`http://localhost:4000/allMovies?searchParams=${search}`)
       .then((res) => res.json())
       .then((data) => setMovies(data));
   }, [search]);
 
   return (
-    <div className="w-11/12 mx-auto">
-      <h1 className="text-4xl text-center my-6">All Movies</h1>
+    <div className="w-11/12 mx-auto mt-28">
+      <h1 className="font-medium text-4xl text-center my-6">All Movies</h1>
       <label className="input input-bordered flex items-center gap-2 w-1/3 mx-auto my-6">
         <input
           type="text"

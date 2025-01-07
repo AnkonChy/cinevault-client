@@ -63,7 +63,7 @@ const AddMovie = () => {
       language: language,
     };
 
-    fetch("https://movie-portal-server-neon.vercel.app/addMovie", {
+    fetch("http://localhost:4000/addMovie", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const AddMovie = () => {
   return (
     <div>
       <div className="bg-[#F4F3F0] lg:p-24">
-        <h2 className="text-3xl text-center font-bold">Add New Movie</h2>
+        <h2 className="font-medium text-4xl text-center my-6">Add New Movie</h2>
         <form onSubmit={handleSubmit}>
           <div className="md:flex gap-6 ">
             <div className="form-control md:w-1/2">

@@ -60,7 +60,7 @@ const UpdateMovie = () => {
       language: language,
       summary: summary,
     };
-    fetch(`https://movie-portal-server-neon.vercel.app/update/${id}`, {
+    fetch(`http://localhost:4000/update/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

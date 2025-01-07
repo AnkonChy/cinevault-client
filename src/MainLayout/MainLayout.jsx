@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Footer from "../Components/Footer/Footer";
 const MainLayout = () => {
   return (
-    <div>
+    <div  className="font-poppins">
       <Navbar></Navbar>
       <div className="min-h-[calc(100vh-284px)]">
         <Outlet></Outlet>

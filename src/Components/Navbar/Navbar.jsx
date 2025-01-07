@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import "./Navbar.css";
 // import "Navbar.css";
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
+  const location = useLocation();
 
   const [theme, setTheme] = useState("light");
 
@@ -15,10 +16,19 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 mt-4 mb-4 w-11/12 mx-auto">
+    // <div
+    //   className={`navbar mt-4 mb-4 mx-auto w-full absolute z-10 top-0 ${
+    //     location.pathname === "/" || location.pathname === "/aboutUs"
+    //       ? "text-white"
+    //       : "text-black"
+    //   }  px-4`}
+    // >
+    <div
+      className={`navbar mt-4 mb-4 mx-auto w-full sticky backdrop-blur-md z-10 top-0 px-4`}
+    >
       <div className="navbar-start">
         <div>
-          <Link className="animate__animated animate__rubberBand Left text-2xl md:text-3xl font-bold">
+          <Link className="animate__animated animate__rubberBand Left text-2xl md:text-4xl font-bold">
             CineVault
           </Link>
         </div>
@@ -27,9 +37,10 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 text-lg md:text-xl font-semibold gap-6">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/allMovies">All Movies</NavLink>
-          <NavLink to="/addMovies">Add Movie</NavLink>
-          <NavLink to="/myFavourite">My Favourite</NavLink>
+          {user ? <NavLink to="/addMovies">Add Movie</NavLink> : ""}
+          {user ? <NavLink to="/myFavourite">My Favourite</NavLink> : ""}
           <NavLink to="/aboutUs">About us</NavLink>
+          <NavLink to="/support">Support</NavLink>
         </ul>
       </div>
       <div className="navbar-end gap-3">
