@@ -63,7 +63,7 @@ const AddMovie = () => {
       language: language,
     };
 
-    fetch("http://localhost:4000/addMovie", {
+    fetch("https://movie-portal-server-neon.vercel.app/addMovie", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

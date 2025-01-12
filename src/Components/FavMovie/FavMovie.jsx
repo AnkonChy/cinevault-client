@@ -7,7 +7,7 @@ const FavMovie = ({ favMovie, favMovies, setFavMovies }) => {
   const { _id, poster, title, genre, duration, year, rating } = favMovie;
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:4000/favMovie/${id}`, {
+    fetch(`https://movie-portal-server-neon.vercel.app/favMovie/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -24,7 +24,11 @@ const Navbar = () => {
     //   }  px-4`}
     // >
     <div
-      className={`navbar mt-4 mb-4 mx-auto w-full sticky backdrop-blur-md z-10 top-0 px-4`}
+      className={`navbar pt-4 pb-4 mx-auto w-full fixed backdrop-blur-sm z-10 top-0 px-4  ${
+        location.pathname === "/" || location.pathname === "/aboutUs"
+          ? "text-white"
+          : "text-black"
+      }`}
     >
       <div className="navbar-start">
         <div>
