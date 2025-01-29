@@ -4,23 +4,17 @@ import { NavLink, useLoaderData } from "react-router-dom";
 import FeaturedMovie from "../../Components/FeaturedMovie/FeaturedMovie";
 import LatestMovies from "../../Components/LatestMovies/LatestMovies";
 import BanglaMovies from "../../Components/BanglaMovies/BanglaMovies";
-import "aos/dist/aos.css";
-import Aos from "aos";
-import "animate.css";
 import WebSeries from "../../Components/WebSeries/WebSeries";
 
 const Home = () => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
   const { sortMoviesData, latestMoviesData, banglaMoviesData } =
     useLoaderData();
 
   return (
     <div>
       <Slider></Slider>
-      <div className="mt-20 w-11/12 mx-auto">
-        <h1 className=" animate__animated animate__fadeInLeft text-3xl md:text-4xl lg:text-5xl font-bold">
+      <div className="mt-10 w-11/12 mx-auto">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
           Featured Movies
         </h1>
         <div

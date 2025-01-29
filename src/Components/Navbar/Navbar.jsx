@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import "./Navbar.css";
@@ -6,6 +6,22 @@ import "./Navbar.css";
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
   const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const [theme, setTheme] = useState("light");
 
@@ -16,15 +32,10 @@ const Navbar = () => {
   };
 
   return (
-    // <div
-    //   className={`navbar mt-4 mb-4 mx-auto w-full absolute z-10 top-0 ${
-    //     location.pathname === "/" || location.pathname === "/aboutUs"
-    //       ? "text-white"
-    //       : "text-black"
-    //   }  px-4`}
-    // >
     <div
-      className={`navbar pt-4 pb-4 mx-auto w-full fixed backdrop-blur-sm z-10 top-0 px-4  ${
+      className={`navbar pt-4 pb-4 mx-auto w-full fixed ${
+        isScrolled ? "backdrop-blur-sm" : "backdrop-blur-none"
+      } z-10 top-0 px-4  ${
         location.pathname === "/" || location.pathname === "/aboutUs"
           ? "text-white"
           : "text-black"
