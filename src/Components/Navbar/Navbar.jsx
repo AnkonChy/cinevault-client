@@ -41,14 +41,24 @@ const Navbar = () => {
           : "text-black"
       }`}
     >
-      <div className="navbar-start">
+      <div className="navbar-start gap-14">
         <div>
           <Link className="animate__animated animate__rubberBand Left text-2xl md:text-4xl font-bold">
             CineVault
           </Link>
         </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 md:text-xl lg:text-2xl font-semibold gap-6">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/allMovies">All Movies</NavLink>
+            {user ? <NavLink to="/addMovies">Add Movie</NavLink> : ""}
+            {user ? <NavLink to="/myFavourite">My Favourite</NavLink> : ""}
+            <NavLink to="/aboutUs">About us</NavLink>
+            <NavLink to="/support">Support</NavLink>
+          </ul>
+        </div>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      {/* <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-lg md:text-xl font-semibold gap-6">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/allMovies">All Movies</NavLink>
@@ -57,7 +67,7 @@ const Navbar = () => {
           <NavLink to="/aboutUs">About us</NavLink>
           <NavLink to="/support">Support</NavLink>
         </ul>
-      </div>
+      </div> */}
       <div className="navbar-end gap-3">
         <input
           type="checkbox"
@@ -76,7 +86,7 @@ const Navbar = () => {
         )}
         {user ? (
           <button
-            className="py-2 px-4 bg-blue-900 text-white rounded"
+            className="py-1 md:py-2 px-2 md:px-4 bg-blue-950 text-white rounded"
             onClick={handleLogout}
           >
             Logout
@@ -84,12 +94,12 @@ const Navbar = () => {
         ) : (
           <>
             <NavLink to="/login">
-              <button className="py-2 px-4 bg-blue-900 text-white rounded">
+              <button className="py-1 md:py-2 px-2 md:px-4 bg-blue-950 text-white rounded text-sm">
                 Login
               </button>
             </NavLink>
             <NavLink to="/register">
-              <button className="py-2 px-4 bg-red-900 text-white rounded">
+              <button className="py-1 md:py-2 px-2 md:px-4 bg-red-900 text-white rounded  text-sm">
                 Register
               </button>
             </NavLink>

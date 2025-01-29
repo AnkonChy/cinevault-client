@@ -26,7 +26,7 @@ const Slider = () => {
     >
       <SwiperSlide>
         <img
-          className="w-full md:h-[550px] object-cover"
+          className="w-full h-[232px] md:h-[550px] object-cover"
           src="https://i.ibb.co.com/6FCPG9t/venom.png"
           alt=""
         />
@@ -34,7 +34,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-full md:h-[550px] object-top"
+          className="w-full h-[232px] md:h-[550px] object-top"
           src="https://i.ibb.co.com/pzppsqC/d-w.webp"
           alt=""
         />
@@ -42,7 +42,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-full md:h-[550px] object-cover"
+          className="w-full h-[232px] md:h-[550px] object-cover"
           src="https://i.ibb.co.com/dkLwdTS/dune.jpg"
           alt=""
         />
@@ -50,7 +50,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-full md:h-[550px] lg:object-cover"
+          className="w-full h-[232px] md:h-[550px] lg:object-cover"
           src="https://i.ibb.co.com/dr7Lt5B/FNUS4-Fp-X0-Ac-UE1c.jpg"
           alt=""
         />
@@ -58,7 +58,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-full md:h-[550px] lg:object-cover"
+          className="w-full h-[232px] md:h-[550px] lg:object-cover"
           src="https://i.ibb.co.com/Bs8pm8Z/Fvn-RS1t-Xw-AMZTN.jpg"
           alt=""
         />
@@ -66,7 +66,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-full md:h-[550px] lg:object-fill"
+          className="w-full h-[232px] md:h-[550px] lg:object-fill"
           src="https://i.ibb.co.com/r0SFtqX/ant-man.jpg"
           alt=""
         />
@@ -74,7 +74,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-full md:h-[550px] lg:object-fill"
+          className="w-full h-[232px] md:h-[550px] lg:object-fill"
           src="https://i.ibb.co.com/F69D2Q8/Maharaja-Movie-Review-2024-Indian-Community.webp"
           alt=""
         />
@@ -82,7 +82,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-full md:h-[550px] lg:object-fill"
+          className="w-full h-[232px] md:h-[550px] lg:object-fill"
           src="https://i.ibb.co.com/RCzc31y/hq720.jpg"
           alt=""
         />
@@ -90,7 +90,7 @@ const Slider = () => {
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-full md:h-[550px] lg:object-fill"
+          className="w-full h-[232px] md:h-[550px] lg:object-fill"
           src="https://i.ibb.co.com/DRWc9XH/et00417088-vdyrehwuyn-landscape.jpg"
           alt=""
         />

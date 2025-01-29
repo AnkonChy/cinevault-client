@@ -5,11 +5,15 @@ import FeaturedMovie from "../../Components/FeaturedMovie/FeaturedMovie";
 import LatestMovies from "../../Components/LatestMovies/LatestMovies";
 import BanglaMovies from "../../Components/BanglaMovies/BanglaMovies";
 import WebSeries from "../../Components/WebSeries/WebSeries";
-
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 const Home = () => {
   const { sortMoviesData, latestMoviesData, banglaMoviesData } =
     useLoaderData();
 
+  // useEffect(() => {
+  //   AOS.init();
+  // });
   return (
     <div>
       <Slider></Slider>
@@ -17,10 +21,7 @@ const Home = () => {
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
           Featured Movies
         </h1>
-        <div
-          className=" grid md:grid-cols-2 lg:grid-cols-3 gap-6  my-10"
-          data-aos="fade-right"
-        >
+        <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-6  my-10">
           {sortMoviesData.map((movie) => (
             <FeaturedMovie key={movie._id} movie={movie}></FeaturedMovie>
           ))}
