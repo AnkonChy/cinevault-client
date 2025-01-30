@@ -27,7 +27,7 @@ const Home = () => {
           ))}
         </div>
         <NavLink to="/allMovies">
-          <button className="text-lg py-3 px-8 rounded-full text-[#01AA90] border-2 border-[#01AA90] hover:bg-[#01AA90] hover:text-white  block mx-auto">
+          <button className="text-lg py-3 px-8 rounded-full text-black border-2 border-black hover:bg-black hover:text-white  block mx-auto">
             See All Movies
           </button>
         </NavLink>

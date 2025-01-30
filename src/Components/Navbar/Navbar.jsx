@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { IoMenuSharp } from "react-icons/io5";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import "./Navbar.css";
 // import "Navbar.css";
@@ -35,7 +36,7 @@ const Navbar = () => {
     <div
       className={`navbar pt-4 pb-4 mx-auto w-full fixed ${
         isScrolled ? "backdrop-blur-sm" : "backdrop-blur-none"
-      } z-10 top-0 px-4  ${
+      } z-10 top-0 px-1 md:px-4  ${
         location.pathname === "/" || location.pathname === "/aboutUs"
           ? "text-white"
           : "text-black"
@@ -68,7 +69,7 @@ const Navbar = () => {
           <NavLink to="/support">Support</NavLink>
         </ul>
       </div> */}
-      <div className="navbar-end gap-3">
+      <div className="navbar-end gap-0 md:gap-2">
         <input
           type="checkbox"
           className="toggle theme-controller hidden md:block"
@@ -94,12 +95,12 @@ const Navbar = () => {
         ) : (
           <>
             <NavLink to="/login">
-              <button className="py-1 md:py-2 px-2 md:px-4 bg-blue-950 text-white rounded text-sm">
+              <button className="py-1 md:py-2 px-2 md:px-4 md:bg-blue-950 text-white rounded text-sm">
                 Login
               </button>
             </NavLink>
             <NavLink to="/register">
-              <button className="py-1 md:py-2 px-2 md:px-4 bg-red-900 text-white rounded  text-sm">
+              <button className="py-1 md:py-2 px-2 md:px-4 md:bg-red-900 text-white rounded  text-sm">
                 Register
               </button>
             </NavLink>
@@ -108,24 +109,11 @@ const Navbar = () => {
 
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+            <IoMenuSharp className="text-xl" />
           </div>
           <ul
             tabIndex={0}
-            className="z-10 menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 p-2 shadow right-0 gap-3"
+            className="z-10 menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 p-2 shadow right-0 gap-3 text-black"
           >
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allMovies">All Movies</NavLink>

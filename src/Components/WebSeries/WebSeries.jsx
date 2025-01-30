@@ -29,33 +29,39 @@ const WebSeries = () => {
     >
       <SwiperSlide>
         <img
-          className="w-1/2 mx-auto"
+          className="w-1/2 h-96 mx-auto"
           src="https://i.ibb.co.com/jfd5Kdr/5c6d4df70c302af86d89050bb97081e29f3b3d9b588471580ccc3395ee659644.jpg"
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-1/2 mx-auto"
+          className="w-1/2 h-96 mx-auto"
           src="https://i.ibb.co.com/M8XdhLW/All-of-us-are-dead.jpg"
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-1/2 mx-auto"
+          className="w-1/2 h-96 mx-auto"
           src="https://i.ibb.co.com/wKYjPtx/7e091c161324913-63c3824eed49e.jpg"
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
-          className="w-1/2 mx-auto"
+          className="w-1/2 h-96 mx-auto"
           src="https://i.ibb.co.com/r5RbTHf/GXu2cr-LXYAAe-AYH-900x900.jpg"
         />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        <img
+          className="w-1/2 h-96 mx-auto"
+          src="https://i.ibb.co.com/nMjrKL9F/mirzapur-season-3-release-date.jpg"
+        />
       </SwiperSlide>
       <SwiperSlide>
-        <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+        <img
+          className="w-1/2 h-96 mx-auto"
+          src="https://i.ibb.co.com/XPK9nxj/photo.webp"
+        />
       </SwiperSlide>
       <SwiperSlide>
         <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
