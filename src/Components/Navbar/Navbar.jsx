@@ -36,7 +36,7 @@ const Navbar = () => {
     <div
       className={`navbar pt-4 pb-4 mx-auto w-full fixed ${
         isScrolled ? "backdrop-blur-sm" : "backdrop-blur-none"
-      } z-10 top-0 px-1 md:px-4  ${
+      } z-10 top-0 px-2 md:px-8  ${
         location.pathname === "/" || location.pathname === "/aboutUs"
           ? "text-white"
           : "text-black"
@@ -49,7 +49,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 md:text-xl lg:text-2xl font-semibold gap-6">
+          <ul className="menu menu-horizontal px-1 text-xl font-montserrat font-medium gap-6">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allMovies">All Movies</NavLink>
             {user ? <NavLink to="/addMovies">Add Movie</NavLink> : ""}
@@ -59,16 +59,6 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {/* <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-lg md:text-xl font-semibold gap-6">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/allMovies">All Movies</NavLink>
-          {user ? <NavLink to="/addMovies">Add Movie</NavLink> : ""}
-          {user ? <NavLink to="/myFavourite">My Favourite</NavLink> : ""}
-          <NavLink to="/aboutUs">About us</NavLink>
-          <NavLink to="/support">Support</NavLink>
-        </ul>
-      </div> */}
       <div className="navbar-end gap-0 md:gap-2">
         <input
           type="checkbox"
