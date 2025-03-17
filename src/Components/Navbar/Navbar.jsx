@@ -3,7 +3,6 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { IoMenuSharp } from "react-icons/io5";
 import { AuthContext } from "../Provider/AuthProvider/AuthProvider";
 import "./Navbar.css";
-// import "Navbar.css";
 const Navbar = () => {
   const { user, handleLogout } = useContext(AuthContext);
   const location = useLocation();
@@ -49,7 +48,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-xl font-montserrat font-medium gap-6">
+          <ul className="menu menu-horizontal px-1 md:text-xl lg:text-2xl font-montserrat font-medium gap-6">
             <NavLink to="/">Home</NavLink>
             <NavLink to="/allMovies">All Movies</NavLink>
             {user ? <NavLink to="/addMovies">Add Movie</NavLink> : ""}

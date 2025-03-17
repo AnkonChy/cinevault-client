@@ -59,7 +59,7 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <div className="mt-20 w-11/12 mx-auto">
+      <div className="pt-20 w-11/12 mx-auto">
         <h1 className=" animate__animated animate__fadeInLeft text-3xl md:text-4xl lg:text-5xl font-bold my-4">
           Web Series
         </h1>
